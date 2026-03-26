@@ -1,0 +1,181 @@
+# Agent 每日情报系统配置示例
+# 使用方法：复制本文件为 config.yaml，填入你自己的配置
+# cp config.yaml.example config.yaml
+
+# AWS Bedrock 配置
+# 需要 IAM 用户具备 bedrock:InvokeModel 权限
+aws:
+  access_key_id: "YOUR_AWS_ACCESS_KEY_ID"
+  secret_access_key: "YOUR_AWS_SECRET_ACCESS_KEY"
+  region: "us-east-1"
+  model_id: "us.anthropic.claude-sonnet-4-20250514-v1:0"
+
+# 关键词过滤 —— 聚焦 Agent 实战、技巧、进展
+keywords:
+  # ── 核心 Agent 概念 ──────────────────────────────────────
+  - agent
+  - agents
+  - agentic
+  - multi-agent
+  - autonomous
+
+  # ── 2026 年最热趋势词（必须精准覆盖） ───────────────────
+  - harness
+  - harness engineering
+  - context engineering
+  - context window
+  - CLAUDE.md
+  - SKILL.md
+  - skill
+  - skills
+  - agent skills
+  - OpenClaw
+  - vibe coding
+  - spec coding
+
+  # ── 上下文与记忆 ──────────────────────────────────────────
+  - memory
+  - planning
+  - reasoning
+  - tool use
+  - tool calling
+  - function calling
+  - prompt engineering
+  - system prompt
+  - orchestration
+  - workflow
+
+  # ── 协议与框架 ────────────────────────────────────────────
+  - MCP
+  - Model Context Protocol
+  - LangChain
+  - LangGraph
+  - LlamaIndex
+  - AutoGen
+  - CrewAI
+
+  # ── 产品 ──────────────────────────────────────────────────
+  - Claude Code
+  - Cursor
+  - Devin
+  - SWE-agent
+  - Gemini CLI
+  - Codex
+
+  # ── 中文关键词 ────────────────────────────────────────────
+  - 智能体
+  - 自主智能体
+  - 多智能体
+  - 上下文工程
+  - 挽具工程
+  - 记忆管理
+  - 工具调用
+  - 技能
+
+# 时间窗口：最近 N 天（博客更新频率低，放宽避免空窗）
+time_window_days: 1
+
+# 输出配置
+output:
+  dir: "./output"
+  port: 8008
+
+# 信息源配置
+sources:
+
+  github_trending:
+    enabled: true
+    languages:
+      - "python"
+      - "typescript"
+      - ""
+    period: "daily"
+
+  hackernews:
+    enabled: true
+    min_score: 30
+    max_items: 50
+    keyword_filter: true
+
+  rss_feeds:
+    enabled: true
+    feeds:
+
+      # ── 官方博客：国际大厂（RSS 可用的）────────────────────
+      - name: "OpenAI Blog"
+        url: "https://openai.com/blog/rss.xml"
+        category: "official_blog/intl"
+        language: "en"
+      - name: "Google DeepMind Blog"
+        url: "https://deepmind.google/blog/rss.xml"
+        category: "official_blog/intl"
+        language: "en"
+      - name: "Microsoft Research Blog"
+        url: "https://www.microsoft.com/en-us/research/feed/"
+        category: "official_blog/intl"
+        language: "en"
+      - name: "AWS Machine Learning Blog"
+        url: "https://aws.amazon.com/blogs/machine-learning/feed/"
+        category: "official_blog/intl"
+        language: "en"
+      # Anthropic RSS 404 → website_fetcher 爬 /news
+      # Meta AI RSS 400   → website_fetcher Playwright 爬
+
+      # ── 官方博客：国内大模型 ──────────────────────────────
+      - name: "Qwen Blog"
+        url: "https://qwenlm.github.io/blog/index.xml"
+        category: "official_blog/cn"
+        language: "en"
+
+      # ── 技术博客：框架与工具 ──────────────────────────────
+      - name: "LangChain Blog"
+        url: "https://blog.langchain.dev/rss/"
+        category: "tech_blog/framework"
+        language: "en"
+      - name: "HuggingFace Blog"
+        url: "https://huggingface.co/blog/feed.xml"
+        category: "tech_blog/framework"
+        language: "en"
+      - name: "Latent Space"
+        url: "https://www.latent.space/feed"
+        category: "tech_blog/framework"
+        language: "en"
+      - name: "The AI Edge"
+        url: "https://newsletter.theaiedge.io/feed"
+        category: "tech_blog/framework"
+        language: "en"
+      - name: "Interconnects.ai"
+        url: "https://www.interconnects.ai/feed"
+        category: "tech_blog/framework"
+        language: "en"
+      - name: "Mitchell Hashimoto Blog"
+        url: "https://mitchellh.com/feed.xml"
+        category: "tech_blog/framework"
+        language: "en"
+      - name: "Simon Willison's Weblog"
+        url: "https://simonwillison.net/atom/everything/"
+        category: "tech_blog/framework"
+        language: "en"
+      - name: "Hamel Husain Blog"
+        url: "https://hamel.dev/feed.xml"
+        category: "tech_blog/framework"
+        language: "en"
+
+      # ── 国内媒体（权威 AI 专业媒体）─────────────────────
+      - name: "量子位"
+        url: "https://www.qbitai.com/feed"
+        category: "cn_media"
+        language: "zh"
+      # 机器之心 RSS 无内容 → website_fetcher 调内部 API
+      - name: "InfoQ中文"
+        url: "https://www.infoq.cn/feed"
+        category: "cn_media"
+        language: "zh"
+
+  # 微信公众号（可选，需自部署 we-mp-rss）
+  wechat:
+    enabled: false
+    # api_base: "http://localhost:8085"
+    # accounts:
+    #   - name: "公众号名称"
+    #     id: "YOUR_ACCOUNT_ID"
