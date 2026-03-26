@@ -295,6 +295,13 @@ def _build_page(all_days: list[tuple[str, list[dict]]]) -> str:
       <span x-text="(dayData[currentDate] || []).length" class="font-medium text-gray-600"></span>
       <span>条 ·</span>
       <span>{len(all_days)} 天</span>
+      <span class="mx-1 text-gray-300">|</span>
+      <!-- 访问计数 -->
+      <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+      </svg>
+      <span x-text="pageviews !== null ? pageviews.toLocaleString() : '…'" class="font-medium text-gray-600"></span>
     </div>
   </div>
 </header>
@@ -470,12 +477,26 @@ function app() {{
     activeTab: '',
     activeSubTab: null,
     activeSource: 'all',
+    pageviews: null,
     IMP_CFG,
     PARENT_ICONS,
 
     init() {{
       this.currentDateIdx = 0;
       this.switchDate();
+      // 访问计数：同一 tab 内只计一次
+      if (!sessionStorage.getItem('_counted')) {{
+        sessionStorage.setItem('_counted', '1');
+        fetch('https://api.counterapi.dev/v1/agent-daily/pageviews/up')
+          .then(r => r.json())
+          .then(d => {{ this.pageviews = d.count; }})
+          .catch(() => {{ this.pageviews = null; }});
+      }} else {{
+        fetch('https://api.counterapi.dev/v1/agent-daily/pageviews/')
+          .then(r => r.json())
+          .then(d => {{ this.pageviews = d.count; }})
+          .catch(() => {{ this.pageviews = null; }});
+      }}
     }},
 
     switchDate() {{

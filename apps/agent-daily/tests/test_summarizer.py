@@ -23,9 +23,9 @@ def test_summarize_single_article():
     )
 
     aws_config = {
-        "access_key_id": "XXXX",
-        "secret_access_key": "XXXX",
-        "region": "us-east-1",
+        "access_key_id": os.environ.get("AWS_ACCESS_KEY_ID", "YOUR_AWS_ACCESS_KEY_ID"),
+        "secret_access_key": os.environ.get("AWS_SECRET_ACCESS_KEY", "YOUR_AWS_SECRET_ACCESS_KEY"),
+        "region": os.environ.get("AWS_REGION", "us-east-1"),
         "model_id": "us.anthropic.claude-sonnet-4-20250514-v1:0",
     }
 
