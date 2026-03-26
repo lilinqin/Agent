@@ -22,13 +22,6 @@
 | Toolformer | https://arxiv.org/abs/2302.04761 | 工具调用原论文 |
 | MemGPT | https://arxiv.org/abs/2310.08560 | 长期记忆管理 |
 
-## 优质博客 / 教程
-
-| 名称 | 链接 | 说明 |
-|------|------|------|
-| Lilian Weng - LLM Powered Autonomous Agents | https://lilianweng.github.io/posts/2023-06-23-agent/ | Agent 系统全面综述 |
-| Chip Huyen - Agents | https://huyenchip.com/2025/01/07/agents.html | Agent 设计深度解析 |
-
 ---
 
 > 持续补充，发现好资料直接在此添加。

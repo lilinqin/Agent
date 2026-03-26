@@ -23,10 +23,6 @@ learning/
 │   ├── perception/   # 感知（多模态）
 │   └── rag/          # RAG / 知识检索
 │
-├── frontier/         # 🚀 前沿跟踪
-│   ├── papers/       # 重要论文笔记
-│   └── news/         # 最新进展摘要
-│
 └── resources/        # 🔗 优秀文档 / 链接收录
     └── LINKS.md
 ```
@@ -38,5 +34,4 @@ learning/
 | 系统学习 Agent 开发 | [courses/COURSES.md](./courses/COURSES.md) |
 | ReAct / Plan-and-Solve 原理 | [architecture/](./architecture/) |
 | Tool Use / RAG 实现 | [components/](./components/) |
-| 最新论文 / 前沿动态 | [frontier/](./frontier/) |
 | 优质博客 / 文档链接 | [resources/LINKS.md](./resources/LINKS.md) |
