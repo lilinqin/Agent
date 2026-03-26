@@ -8,6 +8,8 @@
 
 > 可直接在浏览器或 App WebView 中访问，无需登录，无账号体系。
 
+![Agent 每日情报系统截图](https://oci-useast-backend-public.dupdub.com/subtitles/image/559b07bb-7644-4685-a6fb-b0130ad9036f.png)
+
 ### 隐私说明
 
 | 第三方资源 | 用途 | 是否收集用户信息 |
