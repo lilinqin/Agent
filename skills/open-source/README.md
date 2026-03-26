@@ -73,7 +73,27 @@ claude mcp add skill -- npx -y @agentskills/installer ui-ux-pro-max
 
 ---
 
-## 说明
+### 5. remotion
+
+**作用**
+
+用 React 代码程序化地制作视频。通过自然语言描述动画、转场、UI 效果等，Agent 自动生成 Remotion 代码，几分钟内产出完整视频，无需打开传统视频编辑软件（AE / Premiere / Final Cut Pro）。
+
+技术栈：React + TypeScript + CSS，输出真实 MP4 文件。
+
+适用场景：产品演示、功能发布宣传视频、程序化批量生成视频内容。
+
+**官方文档**
+
+https://www.remotion.dev/docs/videos/
+
+**安装方式（Claude Code）**
+
+```bash
+claude mcp add skill -- npx -y @agentskills/installer remotion
+```
+
+---
 
 - 以上 Skill 均基于 Claude Code 平台
 - 安装后在对话中按各 Skill 的触发词即可激活
