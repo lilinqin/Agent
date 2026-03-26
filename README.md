@@ -21,7 +21,7 @@ Agent/
 
 | 项目 | 描述 | 技术栈 |
 |------|------|--------|
-| [agent-daily](./apps/agent-daily/README.md) | 每日 Agent 情报系统，聚合 GitHub Trending / HackerNews / RSS，AI 摘要生成 HTML 日报 | Python · AWS Bedrock · Claude |
+| [agent-daily](./apps/agent-daily/README.md) | 每日 Agent 情报系统，聚合 GitHub Trending / HackerNews / RSS，AI 摘要生成 HTML 日报 · [🌐 在线访问](https://agent-daily.codebanana.app/) | Python · AWS Bedrock · Claude |
 
 ### 🧩 skills — Skill 模块
 

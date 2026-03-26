@@ -2,6 +2,26 @@
 
 每天自动聚合 Agent 领域最新动态，生成中文日报网页。
 
+## 在线访问
+
+🌐 **https://agent-daily.codebanana.app/**
+
+> 可直接在浏览器或 App WebView 中访问，无需登录，无账号体系。
+
+### 隐私说明
+
+| 第三方资源 | 用途 | 是否收集用户信息 |
+|-----------|------|----------------|
+| Tailwind CSS CDN | 样式 | 仅记录请求 IP（CDN 标准行为） |
+| Alpine.js CDN | 交互逻辑 | 同上 |
+| Google Fonts | 字体加载 | 仅记录请求 IP（国内可能加载失败，自动 fallback） |
+| counterapi.dev | 访问计数展示 | 仅 +1 计数，不收集任何用户信息 |
+
+- ❌ 无 Analytics / 统计追踪
+- ❌ 无广告 SDK
+- ❌ 无 Cookie、无用户登录
+- ✅ 适合在 App WebView 中内嵌
+
 ## 信息来源
 
 | 来源 | 类型 | 说明 |
