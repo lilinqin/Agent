@@ -25,11 +25,24 @@ Agent/
 
 ### 🧩 skills — Skill 模块
 
-> 开发中，敬请期待。
+收录常用开源 Agent Skill，详见 [skills/open-source/README.md](./skills/open-source/README.md)。
+
+| Skill | 说明 |
+|-------|------|
+| planning-with-files | Manus 风格文件化规划，防止上下文丢失 |
+| test-driven-development | TDD 流程强制约束 |
+| brainstorming | 实现前先对齐需求与设计 |
+| ui-ux-pro-max | UI/UX 设计全流程辅助 |
+| remotion | 用 React 代码程序化制作视频 |
 
 ### 📚 learning — 学习资料
 
-> 整理中，敬请期待。
+持续整理中，详见 [learning/README.md](./learning/README.md)。
+
+| 目录 | 内容 |
+|------|------|
+| [architecture/what-is-agent](./learning/architecture/what-is-agent/) | Agent 本质理解：ReAct 循环、Agent vs Workflow、局限分析 |
+| [resources/LINKS.md](./learning/resources/LINKS.md) | 优质文档、论文链接收录 |
 
 ## 开发计划
 

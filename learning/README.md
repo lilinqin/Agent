@@ -11,6 +11,7 @@ learning/
 │   └── COURSES.md    # 课程链接收录（进 git）
 │
 ├── architecture/     # 🏗️ Agent 架构原理
+│   ├── what-is-agent/ # Agent 概念与本质
 │   ├── react/        # ReAct 范式
 │   ├── plan-and-solve/
 │   ├── multi-agent/  # 多 Agent 协作
