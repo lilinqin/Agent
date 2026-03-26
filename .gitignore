@@ -4,6 +4,13 @@
 .codebanana/
 
 # ============================================
+# Learning: courses (large repos, local only)
+# keep README.md and COURSES.md
+# ============================================
+learning/courses/hello-agents/
+learning/courses/*/
+
+# ============================================
 # Operating System Files
 # ============================================
 .DS_Store
