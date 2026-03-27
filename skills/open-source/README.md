@@ -95,5 +95,65 @@ claude mcp add skill -- npx -y @agentskills/installer remotion
 
 ---
 
+### 6. skill-creator（create-skill）
+
+**来源**：Anthropic 官方出品
+
+**作用**
+
+帮助你从零创建一个符合规范的 Agent Skill。内置完整的 Skill 结构指南和设计原则，引导你完成从理解需求、规划内容、初始化、编写到打包发布的全流程。
+
+核心设计原则：
+- **渐进式加载**：元数据（~100词）→ SKILL.md 主体（<5k词）→ 按需加载引用文件，节省上下文窗口
+- **自由度匹配**：任务越脆弱，指令越具体；任务越灵活，指令越宽松
+- **精简原则**：Skill 只包含 AI 干活所需的信息，不创建 README、更新日志等冗余文件
+
+Skill 标准目录结构：
+```
+my-skill/
+├── SKILL.md        # 核心文件：YAML 元数据 + Markdown 指令（必需）
+├── scripts/        # 可执行脚本（可选）
+├── references/     # 参考文档（可选）
+└── assets/         # 模板、图片等资源（可选）
+```
+
+**来源地址**：https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md
+
+**安装方式**
+
+```bash
+npx skills add anthropics/skills --skill skill-creator
+```
+
+---
+
+### 7. find-skills（find-skill）
+
+**来源**：Vercel 官方出品
+
+**作用**
+
+元 Skill——帮你在当前工作流中快速搜索并找到最匹配的 Skill，无需跳出到外部平台。支持指令搜索和自然语言两种方式，中文提问可同时检索中英文关键词。
+
+常用命令：
+```bash
+npx skills find "关键词"           # 关键词搜索
+npx skills find "react 性能优化"   # 自然语言搜索
+npx skills check                   # 检查已安装 Skill 的更新
+npx skills update                  # 一键更新所有已安装 Skill
+```
+
+也可以在 Claude Code 中直接用自然语言提问，如："帮我找个能处理视频生成的 Skill"。
+
+**来源地址**：https://github.com/vercel-labs/skills/blob/main/skills/find-skills/SKILL.md
+
+**安装方式**
+
+```bash
+npx skills add vercel-labs/skills --skill find-skills
+```
+
+---
+
 - 以上 Skill 均基于 Claude Code 平台
 - 安装后在对话中按各 Skill 的触发词即可激活
