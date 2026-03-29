@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  /* 基础颜色 */
+  --background: #ffffff;
+  --foreground: #171717;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #18181b;
+  
+  /* 语义颜色 */
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  
+  /* 状态颜色 */
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --success: #22c55e;
+  --success-foreground: #fafafa;
+  --warning: #f59e0b;
+  --warning-foreground: #fafafa;
+  
+  /* 其他 */
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  /* 颜色系统 */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  
+  /* 字体系统 */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* 边框圆角 */
+  --radius: var(--radius);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 暗色模式基础颜色 */
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --border: #262626;
+    --input: #262626;
+    --ring: #d4d4d8;
+    
+    /* 暗色模式语义颜色 */
+    --primary: #fafafa;
+    --primary-foreground: #18181b;
+    --secondary: #262626;
+    --secondary-foreground: #fafafa;
+    --accent: #262626;
+    --accent-foreground: #fafafa;
+    
+    /* 暗色模式状态颜色 */
+    --destructive: #dc2626;
+    --destructive-foreground: #fafafa;
+    --success: #16a34a;
+    --success-foreground: #fafafa;
+    --warning: #d97706;
+    --warning-foreground: #fafafa;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* 平滑过渡 */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}

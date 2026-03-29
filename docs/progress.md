@@ -6,6 +6,11 @@
 
 ## 2026-03
 
+### 2026-03-29
+- ✅ `learning/README.md` 更新为渐进式Disclosure结构，添加学习路径说明
+- ✅ `docs/plan.md` 更新learning模块状态，标注已完成/待建设项
+- ✅ 删除 `apps/stock/stock-analyzer/data/` 冗余数据目录（已存入数据库）
+
 ### 2026-03-27
 - ✅ 新增 `learning/architecture/what-is-agent/agent-intro.md`：Agent 本质理解笔记，涵盖 ReAct 循环、Agent vs Workflow、上下文管理局限等
 - ✅ `skills/open-source/README.md` 新增 Remotion Skill 条目（用 React 程序化制作视频）

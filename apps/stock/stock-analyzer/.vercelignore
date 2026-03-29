@@ -1,0 +1,10 @@
+node_modules
+.next
+dist
+logs
+tmp
+*.mp4
+*.gz
+*.zip
+*.tar
+datasets/

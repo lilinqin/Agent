@@ -38,12 +38,22 @@
 
 ## learning/ — 学习资料
 
-| 主题 | 描述 | 状态 |
+> 渐进式Disclosure：LLM基础 → Agent概念 → 工程范式
+
+| 主题 | 文件 | 状态 |
 |------|------|------|
-| (待整理) | | |
+| LLM 基础 | `llm-fundamentals/llm-basics.md` | ✅ 完成 |
+| Agent 本质 | `what-is-agent/agent-intro.md` | ✅ 完成 |
+| Agent 范式 | `agent-paradigms/agent-patterns.md` | ✅ 完成 |
+
+**待建设：**
+- [ ] components/tools/ — Tool Use / Function Calling
+- [ ] components/memory/ — 记忆系统
+- [ ] components/planning/ — 任务规划
+- [ ] components/perception/ — 多模态感知
+- [ ] components/rag/ — RAG 实现
 
 **待规划：**
-- Agent 设计模式笔记
 - MCP 协议学习记录
 - Context Engineering 资料整理
 
