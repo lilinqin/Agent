@@ -9,18 +9,11 @@ Agent/
 ├── apps/                  # 可运行的 Agent 应用 / 工具产品
 │   ├── agent-daily/       # 每日 Agent 情报系统
 │   └── stock/             # 股票分析工具集
-│       ├── stock-analyzer/
-│       └── stock_screener/
 ├── skills/                # 可复用的 Agent Skill 模块
 │   └── open-source/       # 开源 Skill 收录
 ├── learning/              # 学习资料
 │   └── architecture/      # 架构原理
-│       ├── llm-fundamentals/    # L0: LLM 基础
-│       ├── what-is-agent/      # L1: Agent 本质
-│       └── agent-paradigms/    # L2: Agent 范式
 └── docs/                  # 开发计划与进度
-    ├── plan.md            # 开发规划
-    └── progress.md        # 进度日志
 ```
 
 ## 项目列表
