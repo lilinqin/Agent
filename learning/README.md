@@ -1,6 +1,6 @@
 # Learning
 
-Agent 开发学习资料库，按渐进式Disclosure组织。
+Agent 开发学习资料库。
 
 ## 学习路径（推荐顺序）
 
@@ -9,8 +9,6 @@ Agent 开发学习资料库，按渐进式Disclosure组织。
 2. what-is-agent/       → Agent 本质理解
 3. agent-paradigms/     → 智能体经典范式
 ```
-
-> **渐进式Disclosure原则**：先掌握底层技术（LLM），再理解上层抽象（Agent），最后学习工程范式。
 
 ---
 

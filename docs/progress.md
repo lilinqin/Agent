@@ -7,7 +7,7 @@
 ## 2026-03
 
 ### 2026-03-29
-- ✅ `learning/README.md` 更新为渐进式Disclosure结构，添加学习路径说明
+- ✅ `learning/README.md` 更新学习路径说明
 - ✅ `docs/plan.md` 更新learning模块状态，标注已完成/待建设项
 - ✅ 删除 `apps/stock/stock-analyzer/data/` 冗余数据目录（已存入数据库）
 

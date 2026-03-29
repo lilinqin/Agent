@@ -1,6 +1,6 @@
 # Architecture
 
-> Agent 架构原理（渐进式Disclosure学习路径）
+> Agent 架构原理
 
 ## 学习路径（推荐顺序）
 

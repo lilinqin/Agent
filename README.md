@@ -13,7 +13,7 @@ Agent/
 │       └── stock_screener/
 ├── skills/                # 可复用的 Agent Skill 模块
 │   └── open-source/       # 开源 Skill 收录
-├── learning/              # 学习资料（渐进式Disclosure）
+├── learning/              # 学习资料
 │   └── architecture/      # 架构原理
 │       ├── llm-fundamentals/    # L0: LLM 基础
 │       ├── what-is-agent/      # L1: Agent 本质
@@ -38,7 +38,7 @@ Agent/
 
 ### 📚 learning — 学习资料
 
-渐进式Disclosure学习路径，详见 [learning/README.md](./learning/README.md)。
+详见 [learning/README.md](./learning/README.md)。
 
 | 层级 | 内容 | 文件 |
 |------|------|------|
