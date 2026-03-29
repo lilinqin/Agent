@@ -29,9 +29,8 @@ Agent/
 
 | 项目 | 描述 | 技术栈 |
 |------|------|--------|
-| [agent-daily](./apps/agent-daily/README.md) | 每日 Agent 情报系统，聚合 GitHub Trending / HackerNews / RSS，AI 摘要生成 HTML 日报 · [🌐 在线访问](https://agent-daily.codebanana.app/) | Python · AWS Bedrock · Claude |
-| [stock-analyzer](./apps/stock/stock-analyzer/) | 股票概念分析工具，支持概念板块、产业链分析 | Next.js · TypeScript |
-| [stock_screener](./apps/stock/stock_screener/) | 股票筛选器 | - |
+| [agent-daily](./apps/agent-daily/README.md) | 每日 Agent 情报系统，聚合 GitHub Trending / HackerHub / RSS，AI 摘要生成 HTML 日报 · [🌐 在线访问](https://agent-daily.codebanana.app/) | Python · AWS Bedrock · Claude |
+| [stock](./apps/stock/README.md) | 股票分析工具集（概念分析、筛选器） | Next.js · Python · TypeScript |
 
 ### 🧩 skills — Skill 模块
 
