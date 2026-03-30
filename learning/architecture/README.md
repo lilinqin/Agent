@@ -1,20 +1,29 @@
-# Architecture
+# Agent 架构
 
-> Agent 架构原理
+> Agent 核心知识体系
 
-## 学习路径（推荐顺序）
+## 学习路径
 
 ```
-llm-fundamentals/  →  what-is-agent/  →  agent-paradigms/  →  low-code-platforms/  →  framework-development/  →  custom-framework/
+agent-intro/  →  core/  →  patterns/  →  evaluation/
 ```
 
 ## 模块列表
 
-| 目录 | 内容 | 层级 |
-|------|------|------|
-| [llm-fundamentals](./llm-fundamentals/) | LLM 基础 | L0 |
-| [what-is-agent](./what-is-agent/) | Agent 本质 | L1 |
-| [agent-paradigms](./agent-paradigms/) | Agent 范式 | L2 |
-| [low-code-platforms](./low-code-platforms/) | 低代码平台 | L3 |
-| [framework-development](./framework-development/) | 框架开发 | L4 |
-| [custom-framework](./custom-framework/) | 自建框架 | L5 |
+| 目录 | 内容 |
+|------|------|
+| [agent-intro](./agent-intro/) | Agent 基础概念 |
+| [core](./core/) | 核心组件 |
+| [patterns](./patterns/) | 架构模式 |
+| [evaluation](./evaluation/) | 评测体系 |
+| [skill](./skill/) | Agent 技能 |
+| [frameworks](./frameworks/) | 框架对比 |
+
+## 核心组件 (core/)
+
+| 子目录 | 内容 |
+|--------|------|
+| [reasoning](./core/reasoning/) | 推理范式 (ReAct, Plan-and-Execute, Reflection) |
+| [tool](./core/tool/) | 工具系统 |
+| [memory](./core/memory/) | 记忆系统 |
+| [sandbox](./core/sandbox/) | 安全沙箱 |
