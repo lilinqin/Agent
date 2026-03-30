@@ -18,7 +18,8 @@ skill/
 
 | Skill | 用途 |
 |-------|------|
-| [daily-life](./custom/daily-life/) | 引导式记录每日工作与生活 |
+| [daily-life](./custom/daily-life/) | 引导式记录每日工作与生活，支持周/月回顾 |
+| [domain-insight](./custom/domain-insight/) | 领域知识体系化整理，多来源摄入 + 多视角分析 + 持续更新 |
 
 ---
 
