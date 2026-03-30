@@ -1,30 +1,52 @@
-# Agent 技能
+# Skill 目录
 
-> 可复用的 Agent Skill 模块
-
----
-
-## 常用 Skill
-
-| Skill | 作用 | 安装命令 |
-|-------|------|----------|
-| **planning-with-files** | Manus 风格文件化规划，将任务计划持久化到 Markdown | `claude mcp add skill -- npx -y @agentskills/installer planning-with-files` |
-| **test-driven-development** | TDD 流程：Red → Green → Refactor | `claude mcp add skill -- npx -y @agentskills/installer test-driven-development` |
-| **brainstorming** | 创意工作前的需求澄清和方案探索 | `claude mcp add skill -- npx -y @agentskills/installer brainstorming` |
-| **ui-ux-pro-max** | UI/UX 设计系统，内置多种风格和配色 | `claude mcp add skill -- npx -y @agentskills/installer ui-ux-pro-max` |
-| **remotion** | 用 React 代码程序化制作视频 | `claude mcp add skill -- npx -y @agentskills/installer remotion` |
-| **skill-creator** | Anthropic 官方，帮助创建符合规范的 Agent Skill | `npx skills add anthropics/skills --skill skill-creator` |
-| **find-skills** | Vercel 官方，元 Skill，快速搜索匹配 Skill | `npx skills add vercel-labs/skills --skill find-skills` |
-
-> 以上 Skill 均基于 Claude Code 平台，安装后在对话中按各 Skill 的触发词即可激活
+> Agent Skill 的学习与收录，分为开源 Skill 整理和自建 Skill 两部分。
 
 ---
 
-## 参考论文
+## 目录结构
 
-| 论文 | 链接 |
-|------|------|
-| ReAct | https://arxiv.org/abs/2210.03629 |
-| A Survey on LLM based Autonomous Agents | https://arxiv.org/abs/2308.11432 |
-| Toolformer | https://arxiv.org/abs/2302.04761 |
-| MemGPT | https://arxiv.org/abs/2310.08560 |
+```
+skill/
+├── README.md            # 本文件，目录总览
+├── opensource/          # 开源 Skill 整理
+│   └── README.md        # 常用开源 Skill 列表与安装命令
+└── custom/              # 自建 Skill
+    └── daily-life/      # 日常生活工作记录 Skill
+        ├── SKILL.md     # 主文件（触发描述 + 工作流 + 质量标准）
+        └── references/  # 引导文档
+            ├── daily-guide.md   # 每日记录引导问题体系
+            ├── review-guide.md  # 周/月回顾引导流程
+            └── templates.md     # 默认模板兜底
+```
+
+---
+
+## opensource/
+
+收录经过筛选的开源 Skill，包含安装命令和用途说明。
+
+→ 详见 [opensource/README.md](./opensource/README.md)
+
+---
+
+## custom/
+
+自己设计和维护的 Skill，遵循 [skill-creator](https://skills.sh) 规范编写。
+
+| Skill | 用途 | 状态 |
+|-------|------|------|
+| [daily-life](./custom/daily-life/SKILL.md) | 引导式记录每日工作与生活，支持周/月回顾 | ✅ 可用 |
+
+---
+
+## Skill 设计规范
+
+自建 Skill 遵循以下原则（来自 skill-creator 方法论）：
+
+- **YAML frontmatter**：`name` + `description` 必填，description 需包含触发时机，语气要有推力
+- **Progressive Disclosure**：SKILL.md 控制在 500 行内，细节放 `references/`
+- **解释 Why**：说明指令背后的原因，而非单纯罗列 MUST
+- **通用性**：避免 hardcode 个人信息，路径用变量或配置说明
+- **测试驱动**：重要 Skill 应编写测试用例验证效果
+
