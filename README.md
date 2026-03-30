@@ -1,6 +1,6 @@
 # Agent
 
-> Agent 开发相关知识体系：架构原理、学习资料、Skill 模块
+> Agent 开发相关知识体系：架构原理、学习资料
 
 ## 目录结构
 
@@ -8,7 +8,7 @@
 Agent/
 ├── learning/              # 学习资料
 │   └── architecture/     # 架构原理
-└── docs/                 # 开发计划与进度
+└── skill/                # 好用 Skill 收录
 ```
 
 ## 模块列表
@@ -21,9 +21,14 @@ Agent/
 |------|------|
 | [learning/architecture](./learning/architecture/) | Agent 架构知识体系 |
 
-### 📖 docs — 文档
+### 🧩 skill — 好用 Skill 收录
 
-详见 [docs/plan.md](./docs/plan.md)，进度记录见 [docs/progress.md](./docs/progress.md)。
+详见 [skill/README.md](./skill/README.md)。
+
+| 内容 | 说明 |
+|------|------|
+| opensource/ | 收录好用的开源 Skill |
+| custom/ | 自建 Skill |
 
 ## License
 

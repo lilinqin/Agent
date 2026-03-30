@@ -28,6 +28,5 @@ architecture/
 │   └── sandbox/       # 安全沙箱
 ├── frameworks/       # 框架对比
 ├── patterns/          # 架构模式
-├── skill/            # Agent 技能
 └── evaluation/       # 评测体系
 ```
