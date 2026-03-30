@@ -1,131 +1,44 @@
 # 记忆系统
 
-> 适用场景：技术面试、长对话系统、RAG 设计
+> 适用：技术面试、长对话系统
 
 ---
 
 ## 为什么需要记忆
 
-LLM 有上下文窗口限制——GPT-4 最大 128K tokens，Claude 3 可以更多，但仍有限制。
-
-Agent 运行多轮后面临两个问题：
-1. **上下文膨胀**：每轮循环都加 Thought/Action/Observation，几轮后 token 就满了
-2. **信息稀释**：早期关键信息被淹没在历史中，LLM "忘记"了
+LLM 有上下文窗口限制。Agent 运行多轮后：
+1. **上下文膨胀**：每轮加 Thought/Action/Observation，几轮后 token 就满了
+2. **信息稀释**：早期关键信息被淹没，LLM 忘了最初目标
 
 ---
 
-## 记忆分层架构
+## 三层记忆架构
 
 | 层次 | 存储 | 生命周期 | 作用 |
 |------|------|----------|------|
 | **工作记忆** | context | 单轮任务 | 当前任务执行上下文 |
-| **会话记忆** | 变量/数据库 | 会话期间 | 多轮对话历史 |
-| **长期记忆** | 向量数据库 | 持久化 | 跨会话知识 |
-
-### 工作记忆（Working Memory）
-
-Agent 当前任务的执行上下文：
-
-```python
-class WorkingMemory:
-    def __init__(self):
-        self.current_task = None      # 当前任务
-        self.execution_history = []   # 执行步骤历史
-        self.intermediate_results = {} # 中间结果缓存
-```
-
-**设计要点**：
-- 每次 `run()` 开始时初始化
-- 记录 Thought/Action/Observation 三元组
-- 超过 max_steps 自动截断
-
-### 会话记忆（Session Memory）
-
-多轮对话的历史：
-
-```python
-class SessionMemory:
-    def __init__(self, max_turns=20):
-        self.messages = []  # [Message, Message, ...]
-    
-    def add(self, role, content):
-        self.messages.append({"role": role, "content": content})
-    
-    def get_context(self):
-        return self.messages[-max_turns:]  # 只取最近 N 轮
-```
-
-### 长期记忆（Long-term Memory）
-
-跨会话的持久化知识存储，通常用向量数据库：
-
-```python
-class LongTermMemory:
-    def __init__(self, vector_store):
-        self.store = vector_store
-    
-    def add(self, content, metadata):
-        embedding = self.embed(content)
-        self.store.add(embedding, content, metadata)
-    
-    def recall(self, query, top_k=3):
-        query_emb = self.embed(query)
-        return self.store.search(query_emb, top_k)
-```
+| **会话记忆** | 变量/DB | 会话期间 | 多轮对话历史 |
+| **长期记忆** | 向量库 | 持久化 | 跨会话知识 |
 
 ---
 
-## 记忆管理策略
+## 管理策略
 
-### 1. 截断策略
+### 截断
+只保留最近 N 轮或 M tokens。简单但可能丢失重要早期信息。
 
-简单粗暴：只保留最近 N 轮或最近 M tokens。
+### 摘要
+每轮结束后用 LLM 生成摘要，替换原始历史。压缩率高，但每次都要调用 LLM 有成本。
 
-**适用**：简单对话、任务轮次少
-
-### 2. 摘要策略
-
-每轮结束后用 LLM 生成摘要，替换原始历史：
-
-```python
-def summarize(messages):
-    prompt = f"将以下对话压缩成简短摘要，保留关键信息：\n{messages}"
-    return llm.invoke(prompt)
-```
-
-**优点**：压缩率高，信息密度高
-**缺点**：每次都要调用 LLM 摘要，有成本
-
-### 3. RAG（检索增强）
-
-把历史当知识库，用向量检索"召回"相关内容：
-
-```python
-def retrieve_relevant_history(query, k=5):
-    # 只检索相关历史，不是一股脑塞入 context
-    return vector_store.search(query, k)
-```
-
-**适用**：长程任务、需要参考历史经验
+### RAG（检索增强）
+把历史当知识库，用向量检索"召回"相关内容。不是一股脑塞入 context，而是只检索相关的。
 
 ---
 
-## 面试高频问题
+## 面试高频
 
 **Q: 上下文窗口管理有哪些策略？**
 > "1. 截断——只保留最近 N 轮；2. 摘要——用 LLM 压缩历史；3. RAG——向量检索召回相关历史。根据任务复杂度选择。"
 
-**Q: Agent 记忆和普通对话历史有什么区别？**
-> "普通对话只需存消息列表。Agent 记忆要区分工作记忆（当前任务上下文）、会话记忆（多轮历史）、长期记忆（跨会话知识），每层管理策略不同。"
-
 **Q: 记忆系统如何影响 Agent 性能？**
-> "好的记忆设计让 Agent 不丢上下文；差的设计导致早期关键信息被稀释，造成'决策漂移'——Agent 忘了最初目标，越跑越偏。"
-
-**Q: RAG 做记忆和普通 RAG 有什么区别？**
-> "本质一样，都是向量检索。区别是检索内容：普通 RAG 检索外部知识库，记忆 RAG 检索历史对话。实现上可以共用一套向量检索架构。"
-
----
-
-## 一句话总结
-
-记忆系统的核心是**分层管理**：工作记忆保执行、会话记忆保连贯、长期记忆保知识。三层各司其职，通过截断/摘要/检索策略控制上下文长度。
+> "好的记忆设计让 Agent 不丢上下文；差的设计导致信息稀释，造成'决策漂移'——Agent 忘了最初目标，越跑越偏。"
