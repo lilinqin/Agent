@@ -242,7 +242,7 @@ def replace_board_stocks(board_name, board_type, stocks):
                      (board_name, board_type))
         if stocks:
             conn.executemany('''
-                INSERT INTO board_stocks
+                INSERT OR IGNORE INTO board_stocks
                     (board_name, board_type, symbol, name, close, change_pct, volume, turnover)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             ''', [
