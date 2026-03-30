@@ -338,3 +338,4 @@ xcuserdata/
 # ============================================
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+apps/stock/stock-analyzer/data/
