@@ -236,21 +236,26 @@ def upsert_board(name, board_type, total_stocks, strength, strength_score,
 
 
 def replace_board_stocks(board_name, board_type, stocks):
-    """先删后插，保证板块成员股与数据源一致"""
+    """upsert 板块成员股，不删除历史数据"""
+    if not stocks:
+        return
     with get_conn() as conn:
-        conn.execute('DELETE FROM board_stocks WHERE board_name=? AND board_type=?',
-                     (board_name, board_type))
-        if stocks:
-            conn.executemany('''
-                INSERT OR IGNORE INTO board_stocks
-                    (board_name, board_type, symbol, name, close, change_pct, volume, turnover)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            ''', [
-                (board_name, board_type, s.get('symbol', ''), s.get('name', ''),
-                 s.get('close', 0), s.get('change_pct', 0),
-                 s.get('volume', 0), s.get('turnover', 0))
-                for s in stocks if s.get('symbol')
-            ])
+        conn.executemany('''
+            INSERT INTO board_stocks
+                (board_name, board_type, symbol, name, close, change_pct, volume, turnover)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(board_name, board_type, symbol) DO UPDATE SET
+                name=excluded.name,
+                close=excluded.close,
+                change_pct=excluded.change_pct,
+                volume=excluded.volume,
+                turnover=excluded.turnover
+        ''', [
+            (board_name, board_type, s.get('symbol', ''), s.get('name', ''),
+             s.get('close', 0), s.get('change_pct', 0),
+             s.get('volume', 0), s.get('turnover', 0))
+            for s in stocks if s.get('symbol')
+        ])
 
 
 def get_boards(board_type):
