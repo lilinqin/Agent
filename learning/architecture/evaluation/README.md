@@ -2,8 +2,13 @@
 
 ## 内容
 
-- Agent 评测方法
-- Benchmark 介绍
-- Harness 使用
+详见 [evaluation.md](./evaluation.md)
 
-> 待完善
+- Agent 评估难点与挑战
+- 主流基准：BFCL（工具调用）、GAIA（综合能力）、SWE-bench（代码）
+- 评估指标：准确性、效率、鲁棒性
+- 工程实践：先建评估再优化、单变量改动、黄金测试集
+
+## 来源
+
+- hello-agents Chapter 12: Agent Performance Evaluation（2026-03-31）

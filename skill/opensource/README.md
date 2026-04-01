@@ -15,6 +15,7 @@
 | **remotion** | 用 React 代码程序化制作视频 | `claude mcp add skill -- npx -y @agentskills/installer remotion` |
 | **skill-creator** | Anthropic 官方，帮助创建符合规范的 Agent Skill | `npx skills add anthropics/skills --skill skill-creator` |
 | **find-skills** | Vercel 官方，元 Skill，快速搜索匹配 Skill | `npx skills add vercel-labs/skills --skill find-skills` |
+| **playground** | Anthropic 官方，构建交互式 HTML 工具，可视化配置后生成 prompt | `npx skills add anthropics/claude-plugins-official@playground -g -y` |
 
 > 以上 Skill 均基于 Claude Code 平台，安装后在对话中按各 Skill 的触发词即可激活
 
