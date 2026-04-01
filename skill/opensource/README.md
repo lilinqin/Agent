@@ -16,6 +16,7 @@
 | **skill-creator** | Anthropic 官方，帮助创建符合规范的 Agent Skill | `npx skills add anthropics/skills --skill skill-creator` |
 | **find-skills** | Vercel 官方，元 Skill，快速搜索匹配 Skill | `npx skills add vercel-labs/skills --skill find-skills` |
 | **playground** | Anthropic 官方，构建交互式 HTML 工具，可视化配置后生成 prompt | `npx skills add anthropics/claude-plugins-official@playground -g -y` |
+| **superpowers** | 完整 coding agent 工作流集合：brainstorm → plan → subagent 执行 → TDD → review → merge，所有 skills 自动触发，无需手动调用。核心设计：每个任务派独立子 agent（上下文隔离）+ 两阶段 review（spec 合规 → 代码质量）| `/plugin install superpowers@claude-plugins-official` |
 
 > 以上 Skill 均基于 Claude Code 平台，安装后在对话中按各 Skill 的触发词即可激活
 
